@@ -1,0 +1,122 @@
+[
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 1,
+        "fields": {
+            "watched": "Yes",
+            "title": "Avenger",
+            "rating": 7.0,
+            "release_date": "21 September 2020",
+            "review": "good"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 2,
+        "fields": {
+            "watched": "no",
+            "title": "Hereditary",
+            "rating": 7.9,
+            "release_date": "17 Agustus 2021",
+            "review": "Not bad"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 3,
+        "fields": {
+            "watched": "Yes",
+            "title": "Insidious",
+            "rating": 8.4,
+            "release_date": "10 Oktober 2017",
+            "review": "Good"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 4,
+        "fields": {
+            "watched": "Yes",
+            "title": "Furious 7",
+            "rating": 8.52,
+            "release_date": "28 Oktober 2018",
+            "review": "Mantap"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 5,
+        "fields": {
+            "watched": "Yes",
+            "title": "Friday the 13th",
+            "rating": 7.7,
+            "release_date": "1 Januari 2019",
+            "review": ""
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 6,
+        "fields": {
+            "watched": "Yes",
+            "title": "Midsommar",
+            "rating": 9.0,
+            "release_date": "20 Oktober 1999",
+            "review": "Good"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 7,
+        "fields": {
+            "watched": "Yes",
+            "title": "21 Jump Street",
+            "rating": 8.9,
+            "release_date": "31 Desember 2020",
+            "review": "Bad"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 8,
+        "fields": {
+            "watched": "Yes",
+            "title": "Get Out",
+            "rating": 4.4,
+            "release_date": "1 Mei 2021",
+            "review": "good"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 9,
+        "fields": {
+            "watched": "Yes",
+            "title": "Morbius",
+            "rating": 7.89,
+            "release_date": "29 Februari 1990",
+            "review": "good"
+            
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlistItem",
+        "pk": 10,
+        "fields": {
+            "watched": "Yes",
+            "title": "Black Panther",
+            "rating": 6.8,
+            "release_date": "28 Februari 2020",
+            "review": "good"
+            
+        }
+    }
+]
