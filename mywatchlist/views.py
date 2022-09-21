@@ -11,7 +11,8 @@ def show_mywatchlist(request):
     
     context = {
         'watchlist_items': data_mywatchlist_items,
-        'nama': 'Yoozu'
+        'nama': 'Yoozu',
+        'NPM': '2106751064'
     }
     return render(request, "mywatchlist.html",context)
 def show_xml(request):

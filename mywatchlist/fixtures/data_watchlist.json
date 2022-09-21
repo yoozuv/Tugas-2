@@ -5,7 +5,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Avenger",
-            "rating": 7.0,
+            "rating": 3.5,
             "release_date": "21 September 2020",
             "review": "good"
             
@@ -17,7 +17,7 @@
         "fields": {
             "watched": "no",
             "title": "Hereditary",
-            "rating": 7.9,
+            "rating": 3.8,
             "release_date": "17 Agustus 2021",
             "review": "Not bad"
             
@@ -29,7 +29,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Insidious",
-            "rating": 8.4,
+            "rating": 4.3,
             "release_date": "10 Oktober 2017",
             "review": "Good"
             
@@ -41,7 +41,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Furious 7",
-            "rating": 8.52,
+            "rating": 4.44,
             "release_date": "28 Oktober 2018",
             "review": "Mantap"
             
@@ -53,7 +53,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Friday the 13th",
-            "rating": 7.7,
+            "rating": 3.6,
             "release_date": "1 Januari 2019",
             "review": ""
             
@@ -65,7 +65,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Midsommar",
-            "rating": 9.0,
+            "rating": 4.51,
             "release_date": "20 Oktober 1999",
             "review": "Good"
             
@@ -77,7 +77,7 @@
         "fields": {
             "watched": "Yes",
             "title": "21 Jump Street",
-            "rating": 8.9,
+            "rating": 4.78,
             "release_date": "31 Desember 2020",
             "review": "Bad"
             
@@ -101,7 +101,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Morbius",
-            "rating": 7.89,
+            "rating": 3.37,
             "release_date": "29 Februari 1990",
             "review": "good"
             
@@ -113,7 +113,7 @@
         "fields": {
             "watched": "Yes",
             "title": "Black Panther",
-            "rating": 6.8,
+            "rating": 3.4,
             "release_date": "28 Februari 2020",
             "review": "good"
             
