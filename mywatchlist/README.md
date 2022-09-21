@@ -16,7 +16,7 @@ http://tugas2-app.herokuapp.com/mywatchlist/json/ <br>
 
 ### 3. A. perbedaan antara JSON, XML, dan HTML
 HTML merupakan markup language yang digunakan untuk membentuk struktur tampilan dari suatu web, sedangkan 
-XML  merupaka markup language yang digunakan dalam menyimpan dan tranport data dan
+XML  merupakan markup language yang digunakan dalam menyimpan dan transport data dan
 json merupakan format peyimpanan dan transport data yang diperlukan oleh web. 
 Jadi, HTML berkaitan dengan  tampilan (penyajian) data yang dibutuhkan user di halaman web, sedangkan xml dan json berkaitan dengan penyimpanan dan transport data 
 ### B. mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
