@@ -19,6 +19,16 @@ HTML merupakan markup language yang digunakan untuk membentuk struktur tampilan 
 XML  merupakan markup language yang digunakan dalam menyimpan dan transport data dan
 json merupakan format peyimpanan dan transport data yang diperlukan oleh web. 
 Jadi, HTML berkaitan dengan  tampilan (penyajian) data yang dibutuhkan user di halaman web, sedangkan xml dan json berkaitan dengan penyimpanan dan transport data 
+<br>
+perbedaan json dan xml <br>
+ - JSON merupakkan format untuk pertukaran data, sedangkan XML merupakan markup language
+ - JSON menyimpan data dalm bentuk array yang memiliki key and value, sedangkan xml menyimpan data dalam tag-tag
+ - json dapat diakses sebagai JSON object, sedangkan XML harus di-parse terlebih dahulu
+ - json hanya mendukung tipe data text dan number, sedangkan XML mendukung berbagai tipe data,  seperti image, chart, graph
+ - JSON tidak menyediakan display properties, sedangkan XML meyediakan disply properties
+ - JSON dapat menyimpan array, sedangkan xml tidak
+ 
+
 ### B. mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 Implemetasi data delivery dilakukan agar platform dapat menampilkan  data yang dibutuhkan oleh user dan megolah data yang diberikan user secara tepat
 
