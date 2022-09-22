@@ -21,12 +21,14 @@ json merupakan format peyimpanan dan transport data yang diperlukan oleh web.
 Jadi, HTML berkaitan dengan  tampilan (penyajian) data yang dibutuhkan user di halaman web, sedangkan xml dan json berkaitan dengan penyimpanan dan transport data 
 <br>
 perbedaan json dan xml <br>
- - JSON merupakkan format untuk pertukaran data, sedangkan XML merupakan markup language
- - JSON menyimpan data dalm bentuk array yang memiliki key and value, sedangkan xml menyimpan data dalam tag-tag
+ - JSON merupakan format untuk pertukaran data, sedangkan XML merupakan markup language
+ - JSON menyimpan data dalam bentuk array yang memiliki key and value, sedangkan xml menyimpan data dalam tag-tag
  - json dapat diakses sebagai JSON object, sedangkan XML harus di-parse terlebih dahulu
  - json hanya mendukung tipe data text dan number, sedangkan XML mendukung berbagai tipe data,  seperti image, chart, graph
  - JSON tidak menyediakan display properties, sedangkan XML meyediakan disply properties
- - JSON dapat menyimpan array, sedangkan xml tidak
+ - JSON men-support array,sedangkan xml tidak
+ - JSON bersifat data-oriented, sedangakan xml document oriented
+ - Tipe data yang didukung oleh JSON adalah string, angka, Boolean, null, array, sedangkan Data XML dalam format string.
  
 
 ### B. mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
