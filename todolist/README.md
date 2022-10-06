@@ -22,6 +22,29 @@ Jika tidak menggunakan csrf_token, maka pada form dapat dilaukan serangan CSRF s
 - tambhakan fungsi change_task_status dan delete_task di views.py untuk mengubah STATUS TASK DAN MENGHAPUS TAKS
 - tambahkan urlpattern di urls.py sesuai dengan ketentuan soal
 - lakukan migration data menggunkan comand python manage.py makemigrations dan pyton manage.py migrate 
-- lakukan git add . ,lalu git commit, dan git push ke github.
+- lakukan git add . ,lalu git commit, dan git push ke github
+ 
+### Tugas 5
+  
+1. #### Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+  - inline : styling css secara langsung di dalam tag yang akan di-styling, <p style=......>. Dengan menggunakan inline css, kita dapat melakukan styling untuk element secara langsung sehingga tidak ememakan banyak waktu. Selain itu, proses permintaan HTTP lebih kecil sehingga proses load website akan lebih cepat. Tetapi, metode ini tidak efisien karena stiap style hanya berlaku untuk satu element saja
+  - internal : styling dilakukan di dalam tag <style> yang berada di file yang sama dengan dengan file HTML. Kelebihan internal css antara lain,
+   Perubahan hanya terjadi pada 1 halaman, Class dan ID bisa digunakan oleh internal stylesheet, Tidak perlu meng-upload beberapa file karena HTML dan CSS bisa digunakan di file yang sama. Kekurangannya yaitu tidak efisien jika akan menggunakan style yang sama untuk beberapa halaman.
+  - eksternal : styling dilakukan di file lain. CSS ditulis di sebuah file khusus yang berekstensi .css dan biasanya diletakkan setelah bagian <head> pada halaman.
+  Kelebihan dari ekstenal css antara lain ukuran file HTML akan menjadi lebih kecil, struktur dari kode HTML jadi lebih rapi, dan File CSS  tersebut dapat digunakan di beberapa halaman/ file HTML sekaligus.
+  
+2. #### Jelaskan tag HTML5 yang kamu ketahui.
+  - `<table>` : digunakan untuk membuat tabel. Di dalam tag ini, kita dapat menambahkan <th>,<tr>,<td>.
+  - `<a>` : digunakan untuk menambahkan hyperlink.
+  - `<h1>-<h6>` : mendefinisikan heading. Teridir dari h1-h6.
+  - `<input>`   : digunakan untuk meminta input user. Tag ini memeiliki beberapa type, seperti text,date,submit, dan password.
+3. #### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+  - class : digunakan untuk ememilih element berdasarkan class yang diberikan. Selector ini dibuat dengan menambahkan "." sebelum nama clasa.
+  - id    : memilih element berdasarkan id. Dibuta dengan menambahkan "#" sebelum id yang akan dipilih.
+  - tag   : memilih element bardasarkan tag yang digunakan.
 
-
+ 4. #### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+  - incude boostrap ke base.html dengan menambahkan  `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">` di bagian head dan  `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>` di agian body.
+  - styling element pada halaman login, create, register, dan todolist dengan menggunakan code  yang ada di dokumentasi boostrap.
+  - kustomisasi halaman todolist dengan menggunakan menggunakan <div class="card mb-3" style="width: 30%; margin:auto">
+  
