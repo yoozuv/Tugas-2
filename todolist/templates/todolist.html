@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
- {% block content %}
 
-  <h1>Tugas 4 Assignment PBP/PBD</h1>
+{% block content %}
 
+  <h1 class="text-center" style="font-family: Fanstasy;">To Do List</h1>
+<div class="fst-italic">
   <h5>Name: {{Nama}}</h5>
   <p> </p>
 
@@ -12,39 +13,44 @@
 
   <h5> User sekarang: {{user}} </h5>
   <p>  </p>
+</div>
 
-  <table>
-    <tr>
-      <th> Created </th>
-      <th> Judul </th>
-      <th> Deskripsi  </th>
-      <th> Author </th>
-      <th> Status Pekerjaan </th>
-      <th> Ganti Status Pekerjaan </th>
-      <th> Hapus Data </th>
-    </tr>
+  
     {% comment %} Add the data below this line {% endcomment %}
     {% for task in tasks %}
-      <tr>
-        <th>{{task.date}} </th>
-        <th>{{task.title}} </th>
-        <th>{{task.description}} </th>
-        <th>{{task.user}} </th>
+    
+    <div class="card mb-3" style="width: 30%; margin:auto">
+      
+      <div class="card-body">
+        <h4>{{task.title}}</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>User:  </strong>  {{task.user}}</li>
+          <li class="list-group-item"><strong>Date:  </strong>{{task.date}}</li>
+          <li class="list-group-item mb-2"><strong>Description: </strong>  {{task.description}}</li>
+        </ul>
+        
         {% if task.is_finished %}
-          <th> Selesai </th>
+        <p style="color:blue;">Selesai</p>
         {% else %}
-          <th> Belum Selesai </th>
+        <p style="color:red;">Belum Selesai</p>
         {% endif %}
-        <th> <button><a href="{% url 'todolist:change-task-status' task.id %}"> Ganti Status Pekerjaan </a></button> </th>
-        <th> <button><a href="{% url 'todolist:delete-task' task.id%}"> Hapus Data </a></button> </th>
-      </tr>
+        <div style="text-align: center;">
+        <th> <button class="btn btn-secondary"><a style="color: white;" href="{% url 'todolist:change-task-status' task.id %}"> Ganti Status Pekerjaan </a></button> </th>
+        <th> <button class="btn btn-warning"><a href="{% url 'todolist:delete-task' task.id%}"> Hapus Data </a></button> </th>
+    </div>
+      </div>
+    
+  </div>
+    
     {% endfor %}
-  </table>
+  
+<div class="mb-4" style="text-align: center;">
+<button  class="btn btn-primary"><a style="color: white;" href="{% url 'todolist:create-task' %}"> Create Task </a></button>
 
-<button><a href="{% url 'todolist:create-task' %}"> Create Task </a></button>
-
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+<button  class="btn btn-danger"><a style="color: white;" href="{% url 'todolist:logout' %}">Logout</a></button>
+</div>
  {% endblock content %}
+</div>
 
 
 

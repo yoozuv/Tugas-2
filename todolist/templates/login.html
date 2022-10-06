@@ -12,7 +12,7 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
+        <table class="table table-success table-striped">
             <tr>
                 <td>Username: </td>
                 <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
@@ -25,7 +25,7 @@
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="btn btn-primary"type="submit" value="Login"></td>
             </tr>
         </table>
     </form>
