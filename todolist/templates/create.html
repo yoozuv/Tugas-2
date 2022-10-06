@@ -5,10 +5,10 @@
 {% endblock meta %}
 
 {% block content %}
-
+<div class="container-fluid">
 <div>
 
-    <h1>Create Task</h1>
+    <h1 class = "display-5 mb-4 pt-3" style="text-align: center;">Create Task</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
@@ -30,6 +30,7 @@
         </table>
     </form>
      
+</div>
 </div>
 
 {% endblock content %}

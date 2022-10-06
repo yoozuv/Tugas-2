@@ -5,11 +5,10 @@
 {% endblock meta %}
 
 {% block content %}
-
+<div class="container-fluid">
 <div class = "login">
 
-    <h1>Login</h1>
-
+    <h1 class = "display-5 mb-4 pt-3" style="text-align: center;">Login</h1>
     <form method="POST" action="">
         {% csrf_token %}
         <table class="table table-success table-striped">
@@ -40,6 +39,7 @@
         
     Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
 
+</div>
 </div>
 
 {% endblock content %}
