@@ -3,57 +3,154 @@
 
 {% block content %}
 
-  <h1 class="text-center" style="font-family: Fanstasy;">To Do List</h1>
+<script>window.CSRF_TOKEN = "{{csrf_token}}"</script>
+
+<h1 class="text-center" style="font-family: Fanstasy;">To Do List</h1>
 <div class="fst-italic">
   <h5>Name: {{Nama}}</h5>
   <p> </p>
 
   <h5>Student ID: {{Student_ID}} </h5>
-  <p>  </p>
+  <p> </p>
 
   <h5> User sekarang: {{user}} </h5>
-  <p>  </p>
+  <p> </p>
 </div>
 
-  
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for task in tasks %}
-    
-    <div class="card mb-3" style="width: 30%; margin:auto">
+
+{% comment %} Add the data below this line {% endcomment %}
+
+<div id="list"></div>
+
+<script>
+  let myModal
+
+  function reloadList() {
+    $.get("{% url 'todolist:show_json' %}", function (data) {
+      $('#list').empty()
+      $.each(data, function (index, value) {
+        let kartuYangMauDitambah = `    <div class="card mb-3" style="width: 30%; margin:auto">
       
       <div class="card-body">
-        <h4>{{task.title}}</h4>
+        <h4>${value.fields.title}</h4>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>User:  </strong>  {{task.user}}</li>
-          <li class="list-group-item"><strong>Date:  </strong>{{task.date}}</li>
-          <li class="list-group-item mb-2"><strong>Description: </strong>  {{task.description}}</li>
-        </ul>
-        
-        {% if task.is_finished %}
-        <p style="color:blue;">Selesai</p>
-        {% else %}
-        <p style="color:red;">Belum Selesai</p>
-        {% endif %}
-        <div style="text-align: center;">
-        <th> <button class="btn btn-secondary"><a style="color: white;" href="{% url 'todolist:change-task-status' task.id %}"> Ganti Status Pekerjaan </a></button> </th>
-        <th> <button class="btn btn-warning"><a href="{% url 'todolist:delete-task' task.id%}"> Hapus Data </a></button> </th>
+          <li class="list-group-item"><strong>User:  </strong>  ${value.fields.user}</li>
+          <li class="list-group-item"><strong>Date:  </strong>${value.fields.date}</li>
+          <li class="list-group-item mb-2"><strong>Description: </strong>  ${value.fields.description}</li>
+        </ul>`
+
+        if (value.fields.is_finished) {
+          kartuYangMauDitambah += `<p style="color:blue;">Selesai</p>`
+        } else {
+          kartuYangMauDitambah += `<p style="color:red;">Belum Selesai</p>`
+        }
+
+        kartuYangMauDitambah += `<div style="text-align: center;">
+        <th> <button class="btn btn-secondary" id="gantistatus-${value.pk}" style="color: white;"> Ganti Status Pekerjaan</button> </th>
+        <th> <button class="btn btn-warning" id="hapus-${value.pk}"><a href""> Hapus Data </a></button> </th>
     </div>
       </div>
     
-  </div>
-    
-    {% endfor %}
-  
+  </div>`
+        $('#list').append(kartuYangMauDitambah)
+
+        $(`#gantistatus-${value.pk}`).click(() => $.ajax(`change-task-status/${value.pk}/`, {
+          success: () => reloadList()
+        })
+        )
+        $(`#hapus-${value.pk}`).click(() => $.ajax(`delete-task/${value.pk}/`, {
+          success: () => reloadList()
+        })
+        )
+
+      })
+    })
+
+  }
+
+  $(document).ready(function () {
+    myModal = new bootstrap.Modal('#exampleModal', {
+      keyboard: false
+    })
+
+    $('#ajax').submit(event => {
+      event.preventDefault()
+      $.ajax({
+        url: "add/", // the endpoint
+        method: "POST", // http method
+        data: {
+          title: $('#title').val(),
+          description: $('#description').val()
+        },
+        headers: {
+          "X-CSRFToken": window.CSRF_TOKEN
+        },
+
+        success: function (json) {
+          myModal.hide()
+          reloadList()
+        },
+
+        error: function (xhr, errmsg, err) {
+          // $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + errmsg +
+          //   " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+          console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+      });
+
+    })
+  })
+
+  reloadList()
+
+
+</script>
+
+
 <div class="mb-4" style="text-align: center;">
-<button  class="btn btn-primary"><a style="color: white;" href="{% url 'todolist:create-task' %}"> Create Task </a></button>
+  <button class="btn btn-primary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Create
+    Task
+  </button>
 
-<button  class="btn btn-danger"><a style="color: white;" href="{% url 'todolist:logout' %}">Logout</a></button>
+  <a class="btn btn-danger" style="color: white;" href="{% url 'todolist:logout' %}">Logout</a>
 </div>
- {% endblock content %}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="display-5 mb-4 pt-3" style="text-align: center;">Create Task</h1>
+
+        <form id="ajax" method="POST" action="create-task/">
+          {% csrf_token %}
+          <table class="table table-success table-striped">
+
+            <tr>
+              <td>Title: </td>
+              <td><input id="title" type="text" name="title" placeholder="Title" class="form-control"></td>
+            </tr>
+
+            <tr>
+              <td>Description: </td>
+              <td><input id="description" type="description" name="description" placeholder="Description"
+                  class="form-control"></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><input class="btn btn-success" type="submit" value="Submit"></td>
+            </tr>
+          </table>
+        </form>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
-
-
-
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+{% endblock content %}

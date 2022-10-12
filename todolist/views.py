@@ -1,3 +1,4 @@
+import json
 from django.urls import reverse
 from http.client import HTTPResponse
 from django.shortcuts import render
@@ -7,10 +8,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-
+from django.core import serializers
 from .models import Task
 from .forms import TaskForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 def register(request):
@@ -22,6 +23,7 @@ def register(request):
             form.save()
             messages.success(request, 'Akun telah berhasil dibuat!')
             return redirect('todolist:login')
+            
     
     context = {'form':form}
     return render(request, 'register.html', context)
@@ -79,3 +81,20 @@ def delete_task(request, pk):
     if(Task.objects.get(pk=pk).user == request.user):
         Task.objects.filter(pk = pk).delete()
     return redirect('todolist:show_todolist')
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+   
+    data = Task.objects.filter(user = request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def add_task(request):
+    if(request.method == "POST"):
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+           
+        return HttpResponse()
+    return HttpResponse()
+
